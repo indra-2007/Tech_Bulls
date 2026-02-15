@@ -1,0 +1,30 @@
+Test file with sample vulnerabilities for security scanner
+
+API Keys:
+AKIA1234567890ABCDEF
+sk-proj-1234567890abcdefghijklmnopqrstuvwxyz123456
+AIzaSyDm1234567890abcdefghijklmnopqrs
+
+Network Security:
+http://example.com/api/endpoint
+http://192.168.1.100/admin
+
+Cloud Storage:
+https://mybucket.s3.amazonaws.com/file.txt
+https://mystorage.blob.core.windows.net/container/file
+
+Infrastructure:
+192.168.1.100
+10.0.0.50
+dev.internal.company.com
+
+Weak Crypto:
+Using MD5 for hashing
+SHA-1 algorithm
+DES encryption
+
+Debug Info:
+// TODO: Fix this security issue
+// FIXME: Remove hardcoded password
+console.log("Debug mode enabled")
+password = "admin123"

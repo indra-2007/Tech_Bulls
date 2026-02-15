@@ -1,0 +1,8 @@
+Flask==3.0.0
+Flask-CORS==4.0.0
+androguard==3.4.0a1
+pefile==2023.2.7
+python-magic==0.4.27
+requests==2.31.0
+validators==0.22.0
+Werkzeug==3.0.1

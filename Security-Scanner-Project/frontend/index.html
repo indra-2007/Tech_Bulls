@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binary Transparency & Security Analyzer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <canvas id="matrix-canvas"></canvas>
+
+    <!-- Hero Section -->
+    <header class="hero container">
+        <h1 class="hero-title">Binary Transparency & Security Analyzer</h1>
+        <h2 class="hero-subtitle">Reverse Engineering for Transparency & Security</h2>
+        <p class="hero-desc">Professional static binary analysis for APK, EXE, PDF, JAR, DLL, SO, IPA, and JS files.
+            Identify vulnerabilities, leaks, and infrastructure exposure with precision.</p>
+        <button class="btn-pulse"
+            onclick="document.getElementById('upload-section').scrollIntoView({behavior: 'smooth'})">
+            <i class="fas fa-crosshairs"></i> START ANALYSIS
+        </button>
+    </header>
+
+    <main class="container">
+        <!-- File Upload Section -->
+        <section id="upload-section" class="reveal">
+            <div class="section-title">
+                <h3 class="mono">Initialize Scan</h3>
+            </div>
+
+            <div class="upload-terminal" id="dropZone">
+                <div class="upload-content">
+                    <div class="upload-icon">
+                        <i class="fas fa-file-shield"></i>
+                    </div>
+                    <div class="upload-text">DRAG & DROP BINARY FILE</div>
+                    <p class="file-specs">Supported: APK, EXE, PDF, JAR, DLL, SO, IPA, JS</p>
+                </div>
+                <input type="file" id="fileInput" hidden>
+
+                <!-- Selected File Display -->
+                <div id="filePreview" class="hidden">
+                    <div class="upload-icon"><i class="fas fa-file-code"></i></div>
+                    <div class="upload-text" id="fileName">...</div>
+                    <div class="file-specs" id="fileSize">...</div>
+                    <button class="btn-pulse mt-40" id="scanButton">
+                        <i class="fas fa-play"></i> EXECUTE SECURITY SCAN
+                    </button>
+                    <button id="removeFile"
+                        style="background:none; border:none; color:var(--critical); cursor:pointer; margin-top:20px; font-family:var(--font-mono);">
+                        [ CANCEL ]
+                    </button>
+                </div>
+            </div>
+
+            <!-- Console Output -->
+            <div id="consoleContainer" class="console-wrapper">
+                <div id="consoleLines"></div>
+                <div class="cursor"></div>
+            </div>
+        </section>
+
+        <!-- Results Dashboard -->
+        <section id="resultsSection" class="results-container reveal">
+            <div class="section-title">
+                <h3 class="mono">ANALYSIS RESULTS</h3>
+            </div>
+
+            <!-- Sticky Risk Summary Bar -->
+            <div class="risk-summary-bar" id="riskSummaryBar">
+                <div class="risk-score-mini">
+                    <div class="score-circle-mini" id="scoreCircleMini">
+                        <span id="scoreValueMini">0</span>
+                    </div>
+                    <div>
+                        <div class="risk-label-text" id="riskLabelText">ANALYZING...</div>
+                        <div class="risk-sublabel">Security Score</div>
+                    </div>
+                </div>
+                <div class="total-issues-display">
+                    <span class="issues-num" id="totalIssuesCount">0</span>
+                    <span class="issues-label">Total<br>Issues</span>
+                </div>
+                <div class="severity-pills" id="severityPills">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+
+            <!-- Developer View: Category Accordion -->
+            <div id="categoryAccordion">
+                <!-- Populated by JS -->
+            </div>
+        </section>
+
+        <!-- Supported File Types -->
+        <section class="mt-40 reveal">
+            <div class="section-title">
+                <h3 class="mono">Supported Binaries</h3>
+            </div>
+            <div class="badges-container">
+                <div class="cyber-badge" title="Android Package Static Analysis">APK</div>
+                <div class="cyber-badge" title="PE Static Analysis / Signature Check">EXE</div>
+                <div class="cyber-badge" title="Dynamic Library Analysis">DLL</div>
+                <div class="cyber-badge" title="ELF Shared Object Scanning">SO</div>
+                <div class="cyber-badge" title="Java Archive Vulnerability Check">JAR</div>
+                <div class="cyber-badge" title="iOS Application Bundle Analysis">IPA</div>
+                <div class="cyber-badge" title="Javascript Obfuscation & Leak Detection">JS</div>
+                <div class="cyber-badge" title="PDF Object & Macro Analysis">PDF</div>
+            </div>
+        </section>
+
+        <!-- Architecture Flow -->
+        <section class="mt-40 reveal">
+            <div class="section-title">
+                <h3 class="mono">Analysis Architecture</h3>
+            </div>
+            <div class="flow-container">
+                <div class="flow-node">
+                    <i class="fas fa-upload"></i>
+                    <span>Upload</span>
+                </div>
+                <div class="flow-line"></div>
+                <div class="flow-node">
+                    <i class="fas fa-microscope"></i>
+                    <span>Static Analyzer</span>
+                </div>
+                <div class="flow-line"></div>
+                <div class="flow-node">
+                    <i class="fas fa-gears"></i>
+                    <span>Rule Engine</span>
+                </div>
+                <div class="flow-line"></div>
+                <div class="flow-node">
+                    <i class="fas fa-brain"></i>
+                    <span>Risk Classifier</span>
+                </div>
+                <div class="flow-line"></div>
+                <div class="flow-node">
+                    <i class="fas fa-file-contract"></i>
+                    <span>Report Gen</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-glow"></div>
+        <div class="footer-text">Built for Reverse Engineering Transparency & Security</div>
+    </footer>
+
+    <script src="particles.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
